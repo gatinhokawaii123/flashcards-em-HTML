@@ -1,0 +1,21 @@
+body {
+    backgroud-color: bisque;
+    font-family: Bai Jamjuree;
+}
+
+#container {
+    display: flex;
+}
+
+.cartao {
+    margin: 1rem 1rem;
+    backgroud-color: aqua;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33%-6rem);
+}
+
+.cartao_conteudo {
+    text-align: center;
+    height: 100%;
+}
