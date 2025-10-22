@@ -100,3 +100,21 @@ footer p {
     font-size: 0.6rem;
     margin-top: 0.5rem;
 }
+
+@media (max-width: 560px) {
+    body {
+        backgroud: urI('img/bg-mobile.webp'), no-repeat cover;
+    }
+
+    .cartao {
+        flex: 1 0 calc(100%-1rem)
+    }
+
+    .cartao_conteudo h3 {
+        font-size: 3vw;
+
+            {
+            .cartao_conteudo p {
+                font-size: 3.8vw;
+            }
+        }
