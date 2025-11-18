@@ -7,20 +7,26 @@
 body {
     background: url('img/bg-desktop.webp') no-repeat center/cover;
     font-family: 'Bai Jamjuree', sans-serif;
+    /* Adicionado margem 0 para evitar scroll indesejado em navegadores */
+    margin: 0; 
 }
 
 #container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    /* Adicionado padding para garantir espaço nas bordas */
+    padding: 1rem; 
 }
 
 .cartao {
     margin: 1rem;
     height: 20rem;
     flex-grow: 1;
-    flex-basis: calc(33% - 6rem);
+    /* Ajuste na base para melhor responsividade */
+    flex-basis: calc(33% - 4rem); 
     position: relative;
+    cursor: pointer; /* Adicionado cursor de mão para indicar que é clicável */
 }
 
 .cartao__conteudo {
@@ -31,6 +37,17 @@ body {
     transition: transform 300ms ease-in-out;
     position: relative;
     border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adicionado sombra para melhor visual */
+}
+
+/* ----------------------------------------------------- */
+/* AQUI ESTÁ A MUDANÇA PRINCIPAL:                          */
+/* Agora, o cartão vira quando a classe 'active' é         */
+/* adicionada via JavaScript (no clique). O hover foi       */
+/* removido para evitar conflitos.                         */
+/* ----------------------------------------------------- */
+.cartao.active .cartao__conteudo {
+    transform: rotateY(180deg);
 }
 
 .cartao__conteudo h3 {
@@ -46,7 +63,12 @@ body {
 }
 
 .cartao__conteudo p {
-    margin-top: 4rem;
+    /* Ajuste para centralizar o texto verticalmente dentro do conteúdo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    margin: 0; /* Remove a margin-top fixa */
     padding: 2rem;
 }
 
@@ -58,10 +80,6 @@ body {
 .cartao__conteudo__resposta p {
     color: var(--card-back-color);
     font-weight: 700;
-}
-
-.cartao:hover .cartao__conteudo {
-    transform: rotateY(180deg);
 }
 
 .cartao__conteudo__pergunta,
@@ -76,8 +94,10 @@ body {
 
 .cartao__conteudo__resposta {
     transform: rotateY(180deg);
+    background-color: var(--card-front-color); /* Garante que o fundo da resposta seja o mesmo */
 }
 
+/* Footer (Opcional, pois não apareceu no seu HTML arrumado anteriormente) */
 footer {
     background-color: black;
     color: white;
@@ -99,7 +119,7 @@ footer p {
     }
 
     .cartao {
-        flex: 1 0 calc(100% - 1rem);
+        flex: 1 0 calc(100% - 2rem); /* Ajustado para melhor visual mobile */
     }
 
     .cartao__conteudo h3 {

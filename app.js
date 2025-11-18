@@ -1,12 +1,12 @@
 function criaCartao(categoria, pergunta, resposta) {
-    // Corrige o getElementById
-    let container = document.getElementById('container');
+    // Obtém o container principal
+    const container = document.getElementById('container');
 
-    // Cria o elemento principal do cartão
-    let cartao = document.createElement('article');
+    // Cria o elemento principal do cartão (article)
+    const cartao = document.createElement('article');
     cartao.className = 'cartao';
 
-    // Define o conteúdo do cartão
+    // Define o conteúdo HTML interno do cartão
     cartao.innerHTML = `
         <div class="cartao__conteudo">
             <h3>${categoria}</h3>
@@ -19,18 +19,16 @@ function criaCartao(categoria, pergunta, resposta) {
         </div>
     `;
 
-    // Estado para controlar se a resposta está visível
-    let respostaEstaVisivel = false;
-
-    // Função que vira o cartão ao clicar
+    // Função que alterna a classe 'active' para virar o cartão
     function viraCartao() {
-        respostaEstaVisivel = !respostaEstaVisivel;
-        cartao.classList.toggle('active', respostaEstaVisivel);
+        // Usa toggle diretamente para gerenciar a classe 'active'
+        cartao.classList.toggle('active');
     }
 
-    // Adiciona o evento de clique
+    // Adiciona o evento de clique para chamar a função de virar
     cartao.addEventListener('click', viraCartao);
 
-    // Adiciona o cartão ao container
+    // Adiciona o novo cartão ao container na página
     container.appendChild(cartao);
 }
+
